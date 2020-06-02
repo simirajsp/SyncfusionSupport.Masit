@@ -1,0 +1,30 @@
+﻿@using Syncfusion.Blazor.Grids;
+@using Masit.Components.Models;
+@using Syncfusion.Blazor.Data;
+@using Syncfusion.Blazor
+
+@inherits ItemListBase;
+
+<h3>ItemList</h3>
+
+<SfGrid TValue="ItemSummaryViewModel"
+        AllowPaging="true">
+
+    <SfDataManager Adaptor="Adaptors.CustomAdaptor">
+        <QueryDataAdapter Query="@Query"></QueryDataAdapter>
+    </SfDataManager>
+
+    <GridColumns>
+        <GridColumn Field=@nameof(ItemSummaryViewModel.Id)
+                    Visible="false"
+                    IsPrimaryKey="true"
+                    IsIdentity="true"
+                    DefaultValue="0"></GridColumn>
+
+        <GridColumn Field=@nameof(ItemSummaryViewModel.Name)
+                    HeaderText="Name"
+                    Type="ColumnType.String"></GridColumn>
+    </GridColumns>
+
+</SfGrid>
+
